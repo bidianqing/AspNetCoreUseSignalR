@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreUseSignalR", "AspNetCoreUseSignalR\AspNetCoreUseSignalR.csproj", "{C0E58F05-D066-4E68-AD9F-5533E1777975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{A9E791EC-68D1-48A2-BA01-4298047F5D4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0E58F05-D066-4E68-AD9F-5533E1777975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E58F05-D066-4E68-AD9F-5533E1777975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E58F05-D066-4E68-AD9F-5533E1777975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E58F05-D066-4E68-AD9F-5533E1777975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E791EC-68D1-48A2-BA01-4298047F5D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E791EC-68D1-48A2-BA01-4298047F5D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E791EC-68D1-48A2-BA01-4298047F5D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E791EC-68D1-48A2-BA01-4298047F5D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E49DF3E-2E63-4250-8368-1B08A59B7C1B}
+	EndGlobalSection
+EndGlobal
