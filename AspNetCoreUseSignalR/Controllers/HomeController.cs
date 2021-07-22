@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AspNetCoreUseSignalR.Controllers
 {
@@ -27,6 +28,7 @@ namespace AspNetCoreUseSignalR.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Privacy(string message)
         {
             await _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
