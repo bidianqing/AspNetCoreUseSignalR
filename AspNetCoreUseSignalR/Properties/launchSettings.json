@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "AspNetCoreUseSignalR": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5240",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
