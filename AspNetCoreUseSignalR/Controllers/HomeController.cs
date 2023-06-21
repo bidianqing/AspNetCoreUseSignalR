@@ -29,11 +29,11 @@ namespace AspNetCoreUseSignalR.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Privacy(string message)
+        public async Task<IActionResult> Send(string message)
         {
-            await _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
+            await _hubContext.Clients.All.SendAsync("ReceiveMessage", message, 1, new { name = "tom" });
 
-            return View();
+            return Content("ok");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

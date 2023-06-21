@@ -2,13 +2,17 @@ using AspNetCoreUseSignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options =>
+{
+    
+});
 
 var app = builder.Build();
 
@@ -27,6 +31,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapHub<NotificationHub>("/chathub");
+app.MapHub<NotificationHub>("/chathub", options =>
+{
+    
+});
 
 app.Run();
