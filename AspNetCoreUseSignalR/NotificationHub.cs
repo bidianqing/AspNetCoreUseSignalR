@@ -21,7 +21,7 @@ namespace AspNetCoreUseSignalR
         }
 
         // 客户端会Invoke这里的方法
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string userId, string message)
         {
             await Console.Out.WriteLineAsync("收到客户端发来的消息:" + message);
         }

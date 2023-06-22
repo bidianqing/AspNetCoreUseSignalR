@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSignalR(options =>
 {
-    
+    options.KeepAliveInterval = new TimeSpan(0, 0, 10);
 });
 
 var app = builder.Build();

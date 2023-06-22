@@ -31,7 +31,7 @@ namespace AspNetCoreUseSignalR.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Send(string message)
         {
-            await _hubContext.Clients.All.SendAsync("ReceiveMessage", message, 1, new { name = "tom" });
+            await _hubContext.Clients.All.SendAsync("receiveMessage", message, 1, new { name = "tom" });
 
             return Content("ok");
         }
