@@ -22,7 +22,7 @@ namespace ConsoleClient
                 {
                     options.Headers = new Dictionary<string, string>
                     {
-                        { "Platform","console" }
+                        { "Platform", "console" }
                     };
                     options.AccessTokenProvider = async () =>
                     {
@@ -48,8 +48,16 @@ namespace ConsoleClient
                 })
                 .Build();
 
+            connection.KeepAliveInterval = new TimeSpan(0, 0, 3);
+
             // 服务端会呼叫这里定义的方法
-            connection.On<string>("receiveMessage", (message) =>
+            connection.On<string, string>("receiveMessage", (message) =>
+            {
+                Console.WriteLine(message);
+
+                return "back";
+            });
+            connection.On<string>("logout", (message) =>
             {
                 Console.WriteLine(message);
             });
@@ -58,7 +66,7 @@ namespace ConsoleClient
 
             Console.WriteLine($"客户端已启动，{DateTime.Now}，ConnectionId = {connection.ConnectionId}");
 
-            await connection.InvokeAsync("SendMessage", "1117825663852642304", "我是控制台客户端");
+            //await connection.SendAsync("SendMessage", "1117825663852642304", "我是控制台客户端");
 
             Console.ReadKey();
         }
