@@ -7,7 +7,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddSignalR(options =>
 {
-    options.KeepAliveInterval = new TimeSpan(0, 0, 10);
     options.EnableDetailedErrors = true;
 });
 
