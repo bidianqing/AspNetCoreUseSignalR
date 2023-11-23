@@ -1,12 +1,11 @@
-﻿using AspNetCoreUseSignalR.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using System.Diagnostics;
 
 namespace AspNetCoreUseSignalR.Controllers
 {
-    public class HomeController : Controller
+    [ApiController]
+    [Route("api/[controller]/[action]")]
+    public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IHubContext<NotificationHub> _hubContext;
@@ -17,23 +16,12 @@ namespace AspNetCoreUseSignalR.Controllers
             _hubContext = hubContext;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> SendAll([FromQuery]string message)
         {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public async Task<IActionResult> Send(string message)
-        {
-            await _hubContext.Clients.All.SendAsync("receiveMessage", message, 1, new { name = "tom" });
+            await _hubContext.Clients.All.SendAsync("receiveMessage", message);
 
             return Content("ok");
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

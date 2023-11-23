@@ -20,14 +20,10 @@ namespace ConsoleClient
                 })
                 .Build();
 
-            connection.KeepAliveInterval = new TimeSpan(0, 0, 3);
-
             // 服务端会呼叫这里定义的方法
-            connection.On<string, string>("receiveMessage", (message) =>
+            connection.On<string>("receiveMessage", (message) =>
             {
-                Console.WriteLine(message);
-
-                return "back";
+                Console.WriteLine($"{DateTime.Now} -- {message}");
             });
             connection.On<string>("logout", (message) =>
             {
@@ -37,8 +33,6 @@ namespace ConsoleClient
             await connection.StartAsync();
 
             Console.WriteLine($"客户端已启动，{DateTime.Now}，ConnectionId = {connection.ConnectionId}");
-
-            //await connection.SendAsync("SendMessage", "1117825663852642304", "我是控制台客户端");
 
             Console.ReadKey();
         }
