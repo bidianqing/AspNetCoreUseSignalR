@@ -16,6 +16,7 @@ namespace ConsoleClient
                 })
                 .ConfigureLogging((loggingBuilder) =>
                 {
+                    loggingBuilder.AddConsole();
                     loggingBuilder.SetMinimumLevel(LogLevel.Debug);
                 })
                 .Build();
