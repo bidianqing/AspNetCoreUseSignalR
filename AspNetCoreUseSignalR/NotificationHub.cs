@@ -22,6 +22,7 @@ namespace AspNetCoreUseSignalR
         public async Task SendMessage(string userId, string message)
         {
             await Console.Out.WriteLineAsync("收到客户端发来的消息:" + message);
+            await base.Clients.Client(base.Context.ConnectionId).SendAsync("callClient", "hello", "world");
         }
     }
 }
