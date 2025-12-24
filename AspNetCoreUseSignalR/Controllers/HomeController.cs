@@ -17,9 +17,9 @@ namespace AspNetCoreUseSignalR.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> SendAll([FromQuery]string message)
+        public async Task<IActionResult> SendAll([FromQuery] string method, [FromQuery] string message)
         {
-            await _hubContext.Clients.All.SendAsync("receiveMessage", message);
+            await _hubContext.Clients.All.SendAsync(method, message);
 
             return Content("ok");
         }
