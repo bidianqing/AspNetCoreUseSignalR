@@ -3,7 +3,7 @@
     "AspNetCoreUseSignalR": {
       "commandName": "Project",
       "launchBrowser": false,
-      "applicationUrl": "http://localhost:5112",
+      "applicationUrl": "http://192.168.0.102:5112",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
